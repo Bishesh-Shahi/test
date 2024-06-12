@@ -1,12 +1,65 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<div>
-<h1><b> Income Calculator</b></h1> 
-</div>
-<p>Hello </p>
-Hello World
-<p></p>
-<p>Universe</p>
->>>>>>> main
+    <div id="app">
+        <!-- Login/Sign Up Page -->
+        <div id="auth">
+            <h1>Pay Tracker</h1>
+            <div id="login">
+                <h2>Login</h2>
+                <input type="text" id="login-username" placeholder="Username">
+                <input type="password" id="login-password" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? <span onclick="toggleAuth()">Sign Up</span></p>
+            </div>
+            <div id="signup" style="display: none;">
+                <h2>Sign Up</h2>
+                <input type="text" id="signup-username" placeholder="Username">
+                <input type="password" id="signup-password" placeholder="Password">
+                <button onclick="signup()">Sign Up</button>
+                <p>Already have an account? <span onclick="toggleAuth()">Login</span></p>
+            </div>
+        </div>
+
+        <!-- Main Tracker Page -->
+        <div id="tracker" style="display: none;">
+            <h1>Welcome, <span id="user-name"></span></h1>
+            <button onclick="logout()">Logout</button>
+
+            <h2>Add Daily Work</h2>
+            <input type="date" id="work-date">
+            <input type="time" id="start-time">
+            <input type="time" id="end-time">
+            <input type="number" id="hours" placeholder="Total Hours (optional)">
+            <input type="number" id="pay-rate" placeholder="Pay Rate ($/hour)">
+            <input type="number" id="tips" placeholder="Tips Earned">
+            <button onclick="addWork()">Add Work</button>
+
+            <h2>Summary</h2>
+            <table id="summary-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Hours</th>
+                        <th>Rate</th>
+                        <th>Tips</th>
+                        <th>Calculated Earnings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button onclick="showWeeklySummary()">Show Weekly Summary</button>
+            <button onclick="showMonthlySummary()">Show Monthly Summary</button>
+            <button onclick="saveData()">Save Data</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
